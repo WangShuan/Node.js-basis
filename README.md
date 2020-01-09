@@ -19,16 +19,16 @@
       
    - 讀取文件方式為：
      
-       - A. 使用 require 方法加載文件系統模塊 > var fs = require('fs')
-       - B. 使用 fs.readFile() 方法 其參數1為文件地址 參數2為回調函數
+       - A. 使用 require 方法加載文件系統模塊 > `var fs = require('fs')`
+       - B. 使用 `fs.readFile()` 方法 其參數1為文件地址 參數2為回調函數
 
           * 回調函數中有兩個參數 其參數1為error 錯誤對象 參數2為data 文件內容
           * 且data內容為二進制數據 必須在 JS 文件中把 data.toString()
 
    - 寫入文件方式為：
 
-      - A. 使用 require 方法加載文件系統模塊 > var fs = require('fs')
-      - B. 使用 fs.writeFile() 方法 其參數1為文件寫入地址+文件名稱 參數2為要寫入文件的內容 參數3為回調函數
+      - A. 使用 require 方法加載文件系統模塊 > `var fs = require('fs')`
+      - B. 使用 `fs.writeFile()` 方法 其參數1為文件寫入地址+文件名稱 參數2為要寫入文件的內容 參數3為回調函數
        
           * 回調函數中只有一個參數 其參數1為error 錯誤對象
 
@@ -40,8 +40,8 @@
    - 服務器使用方法為：
       
       - A. 使用 require 方法加載 http 核心模塊
-      - B. 創建一個變量 server 為 http.createServer()
-      - C. 使用 server.on() 方法 參數1為 request 參數2為回調函數
+      - B. 創建一個變量 server 為 `http.createServer()`
+      - C. 使用 `server.on()` 方法 參數1為 request 參數2為回調函數
     
         * 回調函數中有兩參數 參數1為 request 參數2為 response
         * 在回調函數中 需使用 response.write('XXX') 方法傳入響應內容
@@ -50,10 +50,10 @@
         * response.write('XXX') 也可以改成直接寫 response.end('XXX') 讓結束響應的同時寫入響應內容
         * 這裏要注意 如果你響應的內容中有中文字 而你沒有設置響應頭
         * 那你就會發現在瀏覽器頁面中響應的中文內容變成亂碼
-        * 解決方式為設置一個響應頭：res.setHeader('Content-Type','text/html; charset=utf-8')
+        * 解決方式為設置一個響應頭：`res.setHeader('Content-Type','text/html; charset=utf-8')`
         * 我們也可以在回調函數中獲取請求地址 request.url > 獲取結果為網址端口號後面的所有內容
    
-      - D. 使用 server.listen() 方法創建端口號 參數1為你指定的端口號 參數2為回調函數
+      - D. 使用 `server.listen()` 方法創建端口號 參數1為你指定的端口號 參數2為回調函數
         * 你指定的端口號不能被其他人所使用 否則無法訪問
         * 回調函數可以傳入一個 console.log 告知服務器已連結完成
 
@@ -83,9 +83,9 @@
    
    - exports 本身默認是一個空對象 我們可以通過把 變量 或 函數 放進此對象裡來使用它們
       
-      * 比如我們有兩個文件 文件1想獲取文件2中的變量var name = 'ZC'
-      * 這時候我們可以在文件2的最後加上一行 exports.name = name
-      * 然後到文件1 var file2 = require(文件2) 使用 file2.name 就能獲取到 name了
+      * 比如我們有兩個文件 文件1想獲取文件2中的變量 `var name = 'ZC'`
+      * 這時候我們可以在文件2的最後加上一行 `exports.name = name`
+      * 然後到文件1 `var file2 = require(文件2)` 使用 `file2.name` 就能獲取到 name了
       * 就類似我們使用核心模塊時的方式一樣
       * 通過把模塊定義為一個變量 並使用變量.模塊方法名 就能調用到模塊中的函數了
 
